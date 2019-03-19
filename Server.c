@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 			if (n < 0)
 			   error("ERROR reading from socket");
 
-			printf("Client: %s",buffer);
+			printf("Someone say: %s",buffer);
 
 			bzero(buffer,255);
 			fgets(buffer,255,stdin);
