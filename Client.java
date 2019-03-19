@@ -22,6 +22,7 @@ class Client
      
      while(true)
       {
+        System.out.println("Say Something Nice:");
         sendMessage = keyRead.readLine();  // keyboard reading
         pwrite.println(sendMessage);       // sending to server
         pwrite.flush();                    // flush the data
