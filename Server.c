@@ -49,6 +49,8 @@ int main(int argc, char *argv[])
 
 		if (newsockfd < 0)
 			error("ERROR on accept!");
+	
+		printf("Say Something Nice:");
 
 		while(1)
 		{
