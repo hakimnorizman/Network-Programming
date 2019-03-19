@@ -14,8 +14,9 @@ void error(const char *msg)
 
 int main(int argc, char *argv[])
 	{
-		int sockfd, newsockfd, portno, clilen;
-		char buffer(255);
+		int sockfd, newsockfd, portno;
+		socklen_t clilen;
+		char buffer[255];
 		struct sockaddr_in serv_addr, cli_addr;
 		int n;
 
@@ -55,7 +56,7 @@ int main(int argc, char *argv[])
 
 			n = read(newsockfd,buffer,255);
 			if (n < 0)
-					error("ERROR reading from socket");
+			   error("ERROR reading from socket");
 
 			printf("Client: %s",buffer);
 
@@ -67,7 +68,7 @@ int main(int argc, char *argv[])
 			if (n < 0)
 				error("ERROR writing to socket!");
 
-			int i = strncmp("See you next time!",buffer,18);
+			int i = strncmp("See you next time!", buffer, 18);
 
 			if(i == 0)
 				break;
