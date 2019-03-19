@@ -15,7 +15,7 @@ void error(const char *msg)
 int main(int argc, char *argv[])
 	{
 		int sockfd, newsockfd, portno, clilen;
-		char buffer(256);
+		char buffer(255);
 		struct sockaddr_in serv_addr, cli_addr;
 		int n;
 
@@ -35,13 +35,13 @@ int main(int argc, char *argv[])
 		portno = atoi(argv[1]);//use atoi to convert char into int, and store in portno
 
 		serv_addr.sin_family = AF_INET;
-		serv_addr.sin_addr.s.addr = INADDR_ANY;
+		serv_addr.sin_addr.s_addr = INADDR_ANY;
 		serv_addr.sin_port = htons(portno);//convert int to network format
 
 		if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
 			error("ERROR in binding!");
 
-		listen(sockfd,5)//5 clients only can bind, this is the listen method to listen to clients
+		listen(sockfd,5);//5 clients only can bind, this is the listen method to listen to clients
 		clilen = sizeof(cli_addr);
 
 		newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
