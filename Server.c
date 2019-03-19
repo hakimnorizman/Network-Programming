@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		serv_addr.sin_port = htons(portno);//convert int to network format
 
 		if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
-			error("ERROR in binding!");
+			error("ERROR in binding!\n");
 
 		listen(sockfd,5);//5 clients only can bind, this is the listen method to listen to clients
 		clilen = sizeof(cli_addr);
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 		newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
 
 		if (newsockfd < 0)
-			error("ERROR on accept!");
+			error("ERROR on accept!\n");
 
 		while(1)
 		{
@@ -56,20 +56,20 @@ int main(int argc, char *argv[])
 
 			n = read(newsockfd,buffer,255);
 			if (n < 0)
-			   error("ERROR reading from socket");
+			   error("ERROR reading from socket!\n");
 
-			printf("Someone say: %s",buffer);
+			printf("Someone say: %s \n",buffer);
 
 			bzero(buffer,255);
 			fgets(buffer,255,stdin);
 			
-			printf("Say Something Nice:");
+			printf("Say Something Nice: \n");
 			n = write(newsockfd,buffer,strlen(buffer));
 
 			if (n < 0)
-				error("ERROR writing to socket!");
+				error("ERROR writing to socket!\n");
 
-			int i = strncmp("See you next time!", buffer, 18);
+			int i = strncmp("See you next time!\n", buffer, 18);
 
 			if(i == 0)
 				break;
