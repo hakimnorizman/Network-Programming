@@ -22,12 +22,14 @@ class Client
      
      while(true)
       {
-        System.out.println("Say Something Nice:");
         sendMessage = keyRead.readLine();  // keyboard reading
         pwrite.println(sendMessage);       // sending to server
         pwrite.flush();                    // flush the data
         if((receiveMessage = receiveRead.readLine()) != null) //receive from server
+        {
           System.out.println("Server say: " + receiveMessage); // displaying at DOS prompt
+          System.out.println("Say Something Nice:");
+        }
       }
     }
  }
