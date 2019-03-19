@@ -63,8 +63,7 @@ int main(int argc, char *argv[])
 			bzero(buffer,255);
 			fgets(buffer,255,stdin);
 			
-			printf("Say Something Nice: \n");
-			n = write(newsockfd,buffer,strlen(buffer));
+			n = write("Say Something Nice: \n",newsockfd,buffer,strlen(buffer));
 
 			if (n < 0)
 				error("ERROR writing to socket!\n");
