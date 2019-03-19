@@ -4,7 +4,7 @@ class Client
 {
   public static void main(String[] args) throws Exception
   {
-     Socket sock = new Socket("192.168.242.128", 6666); // reading from keyboard (keyRead object)
+     Socket sock = new Socket("172.16.110.129", 6666); // reading from keyboard (keyRead object)
     
      BufferedReader keyRead = new BufferedReader(new InputStreamReader(System.in)); // sending to client (pwrite object)
     
