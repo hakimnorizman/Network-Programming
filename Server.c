@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
 		if (argc < 2)
 		{
-			fprint(stderr, "ERROR!, no port provided\n");
+			printf(stderr, "ERROR!, no port provided\n");
 			exit(1);
 		}
 
