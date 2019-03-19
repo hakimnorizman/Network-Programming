@@ -49,8 +49,6 @@ int main(int argc, char *argv[])
 
 		if (newsockfd < 0)
 			error("ERROR on accept!");
-	
-		printf("Say Something Nice:");
 
 		while(1)
 		{
@@ -64,7 +62,8 @@ int main(int argc, char *argv[])
 
 			bzero(buffer,255);
 			fgets(buffer,255,stdin);
-
+			
+			printf("Say Something Nice:");
 			n = write(newsockfd,buffer,strlen(buffer));
 
 			if (n < 0)
