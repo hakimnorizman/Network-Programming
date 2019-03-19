@@ -45,25 +45,25 @@ int main(int argc, char *argv[])
 		listen(sockfd,5);//5 clients only can bind, this is the listen method to listen to clients
 		clilen = sizeof(cli_addr);
 
-		newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen);
+		newsockfd = accept(sockfd,(struct sockaddr *) &cli_addr, &clilen); //to accept the connection from the client
 
 		if (newsockfd < 0)
 			error("ERROR on accept!\n");
 
-		while(1)
+		while(1) //loop for connection of client
 		{
 			bzero(buffer,255);
 
-			n = read(newsockfd,buffer,255);
+			n = read(newsockfd,buffer,255); //read the message from the client
 			if (n < 0)
 			   error("ERROR reading from socket!\n");
 
-			printf("Someone say: %s \n",buffer);
+			printf("Someone say: %s \n",buffer); //display the message from the client by passing value of the string
 
-			bzero(buffer,255);
+			bzero(buffer,255); 
 			fgets(buffer,255,stdin);
 			
-			n = write("Say Something Nice: \n",newsockfd,buffer,strlen(buffer));
+			n = write(newsockfd,buffer,strlen(buffer)); //to send message back to client
 
 			if (n < 0)
 				error("ERROR writing to socket!\n");
