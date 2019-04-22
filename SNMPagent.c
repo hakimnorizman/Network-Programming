@@ -210,7 +210,7 @@ void get_netinfo(netinfo_t *netinfo)
     }
 }	
 
-#endif /* __FreeBSD__ */
+#endif /* __OpenBSD__ */
 
 /* vim: ts=4 sts=4 sw=4 nowrap
  */
