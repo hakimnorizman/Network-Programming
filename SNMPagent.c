@@ -25,6 +25,7 @@
 #include <stdio.h>
 
 #include "mini_snmpd.h"
+int main{
 
 unsigned int get_process_uptime(void)
 {
@@ -207,7 +208,8 @@ void get_netinfo(netinfo_t *netinfo)
 	}
 
 	freeifaddrs(ifap);
-}
+    }
+}	
 
 #endif /* __FreeBSD__ */
 
