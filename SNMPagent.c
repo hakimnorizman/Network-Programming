@@ -1,3 +1,5 @@
+#ifdef __OpenBSD__
+
 #include <sys/limits.h>
 #include <sys/param.h>
 #include <sys/mount.h>
@@ -207,4 +209,7 @@ void get_netinfo(netinfo_t *netinfo)
 	freeifaddrs(ifap);
 }
 
+#endif /* __FreeBSD__ */
 
+/* vim: ts=4 sts=4 sw=4 nowrap
+ */
