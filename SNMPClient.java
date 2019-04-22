@@ -39,7 +39,7 @@ client.start();
 /**
 * OID - .1.3.6.1.2.1.1.1.0 => SysDec
 * OID - .1.3.6.1.2.1.1.5.0 => SysName
-* => MIB explorer will be usefull here, as discussed in previous article
+* => MIB explorer will be usefull here
 */
 String sysDescr = client.getAsString(new OID(".1.3.6.1.2.1.1.1.0"));
 System.out.println(sysDescr);
